@@ -1,6 +1,6 @@
 <h2>Lista de Backing Tracks</h2>
 
-<div *ngIf="loading">Carregando presets...</div>
+<div *ngIf="loading">Loading...</div>
 <div *ngIf="error" class="error">{{ error }}</div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!loading && !error && presets.length > 0">
