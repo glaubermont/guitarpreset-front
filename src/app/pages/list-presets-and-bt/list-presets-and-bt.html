@@ -1,0 +1,21 @@
+<h2>Lista de Backing Tracks</h2>
+
+<div *ngIf="loading">Carregando presets...</div>
+<div *ngIf="error" style="color: red;">{{ error }}</div>
+
+<ul *ngIf="!loading && !error && presets.length > 0">
+  <li *ngFor="let item of presets">
+    <strong>Artist:</strong> {{ item.artist }}<br>
+    <strong>Song:</strong> {{ item.song }}<br>
+    <strong>Play Music:</strong> {{ item.playmusic }}<br>
+    <strong>Preset Guitar:</strong> {{ item.presetguitar }}<br>
+    <strong>Software:</strong> {{ item.software }}<br>
+    <strong>Video Preset:</strong>
+    <a *ngIf="item.videopreset" [href]="item.videopreset" target="_blank" rel="noopener noreferrer">Assista aqui</a>
+    <hr>
+  </li>
+</ul>
+
+<div *ngIf="!loading && !error && presets.length === 0">
+  Nenhum item encontrado.
+</div>
