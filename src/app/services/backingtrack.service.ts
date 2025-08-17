@@ -7,7 +7,7 @@ import { BackingTrack } from '../models/BackingTrack';
   providedIn: 'root'
 })
 export class BackingTracksService {
-  private apiUrl = 'http://localhost:8080/api/backingtracks';
+  private apiUrl = 'https://wicked-terza-guitarpreset-4522c1b5.koyeb.app/api/backingtracks';
 
   constructor(private http: HttpClient) {}
 
