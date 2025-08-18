@@ -4,7 +4,7 @@
   <mat-spinner diameter="50"></mat-spinner> loading presets...
 </div>
 
-<div *ngIf="!loading && !error && presets.lengthgit  > 0" class="filter-container">
+<div *ngIf="!loading && !error && presets.length > 0" class="filter-container">
   <mat-form-field appearance="outline">
     <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Type to search..." />
