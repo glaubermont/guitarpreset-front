@@ -47,13 +47,15 @@
 
   <!-- Video Preset Column -->
   <ng-container matColumnDef="videopreset">
-    <th mat-header-cell *matHeaderCellDef>Video testing Preset</th>
-    <td mat-cell *matCellDef="let element">
-      <a *ngIf="element.videopreset" [href]="element.videopreset" target="_blank" rel="noopener noreferrer">
-        play video
-      </a>
-    </td>
-  </ng-container>
+  <th mat-header-cell *matHeaderCellDef>Video testing Preset</th>
+  <td mat-cell *matCellDef="let element">
+    <button mat-button color="accent"
+      *ngIf="element.videopreset"
+      (click)="openVideo(element.videopreset, element.song)">
+      play video
+    </button>
+  </td>
+</ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { VideoTestingPreset } from '../video-testing-preset/video-testing-preset';
 
 @Component({
   selector: 'app-list-presets-and-bt',
@@ -37,7 +39,9 @@ export class ListPresetsAndBt implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private backingTracksService: BackingTracksService) {}
+  constructor(private backingTracksService: BackingTracksService,
+      private dialog: MatDialog
+  ) {}
 
   applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
@@ -68,4 +72,13 @@ export class ListPresetsAndBt implements OnInit {
       }
     });
   }
+
+    // método para abrir o modal
+  openVideo(url: string, title: string) {
+    this.dialog.open(VideoTestingPreset, {
+      data: { url, title },
+      width: '800px',
+      maxWidth: '95vw'
+    });
+}
 }
