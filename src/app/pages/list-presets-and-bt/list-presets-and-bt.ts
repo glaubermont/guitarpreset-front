@@ -9,6 +9,8 @@ import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-list-presets-and-bt',
@@ -20,7 +22,9 @@ import { MatTableDataSource } from '@angular/material/table';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class ListPresetsAndBt implements OnInit {
@@ -34,6 +38,15 @@ export class ListPresetsAndBt implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private backingTracksService: BackingTracksService) {}
+
+  applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
 
   ngOnInit(): void {
     this.loading = true;
