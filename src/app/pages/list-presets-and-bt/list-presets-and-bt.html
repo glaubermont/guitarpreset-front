@@ -27,14 +27,13 @@
     <td mat-cell *matCellDef="let element">{{ element.song }}</td>
   </ng-container>
 
-  <!-- Play Music Column -->
-  <ng-container matColumnDef="playmusic">
+ <ng-container matColumnDef="playmusic">
   <th mat-header-cell *matHeaderCellDef>Play Backing Track</th>
   <td mat-cell *matCellDef="let element">
-    <button mat-button color="accent"
-      *ngIf="element.playmusic"
-      (click)="openVideo(element.playmusic, element.song)">
-      play video
+    <button mat-icon-button color="accent"
+            *ngIf="element.playmusic"
+            (click)="openVideo(element.playmusic, element.song)">
+      <mat-icon>play_circle_filled</mat-icon>
     </button>
   </td>
 </ng-container>
@@ -58,13 +57,14 @@
   </ng-container>
 
   <!-- Video Preset Column -->
-  <ng-container matColumnDef="videopreset">
+  <!-- Video Preset Column -->
+<ng-container matColumnDef="videopreset">
   <th mat-header-cell *matHeaderCellDef>Video testing Preset</th>
   <td mat-cell *matCellDef="let element">
-    <button mat-button color="accent"
-      *ngIf="element.videopreset"
-      (click)="openVideo(element.videopreset, element.song)">
-      play video
+    <button mat-icon-button color="accent"
+            *ngIf="element.videopreset"
+            (click)="openVideo(element.videopreset, element.song)">
+      <mat-icon>play_circle_filled</mat-icon>
     </button>
   </td>
 </ng-container>
