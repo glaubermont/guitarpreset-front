@@ -1,0 +1,15 @@
+.download-link {
+  display: flex;
+  justify-content: center; /* centraliza dentro da célula */
+  align-items: center;
+  text-decoration: none;
+  color: #337ab7;
+  margin-left: auto; /* empurra o link */
+}
+
+.big-icon {
+  font-size: 90px !important;  /* aumenta o tamanho */
+  width: 90px !important;
+  height: 90px !important;
+  line-height: 90px !important;
+}

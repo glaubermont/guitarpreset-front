@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
 import { VideoTestingPreset } from '../video-testing-preset/video-testing-preset';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-list-presets-and-bt',
@@ -26,7 +27,8 @@ import { VideoTestingPreset } from '../video-testing-preset/video-testing-preset
     MatProgressSpinnerModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class ListPresetsAndBt implements OnInit {
