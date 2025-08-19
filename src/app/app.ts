@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,4 +23,12 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class App {
   protected readonly title = signal('guitarpreset-front');
+
+  // ✅ Injetando o Router no construtor
+  constructor(private router: Router) {}
+
+  // ✅ Função para redirecionar
+  redirectList() {
+   window.location.href = '/list-presets-and-bt'; // força reload completo
+  }
 }
