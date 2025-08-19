@@ -52,7 +52,8 @@
 
     <!-- Link interno se for nulo -->
     <a *ngIf="!element.linkcpagrip"
-       [routerLink]="['/download-preset', element.id]"
+       [routerLink]="['/download-preset']"
+       [queryParams]="{ id: element.id }"
        target="_blank"
        class="download-link">
       <mat-icon class="big-icon">download</mat-icon>
@@ -60,6 +61,7 @@
 
   </td>
 </ng-container>
+
 
   <!-- Software Column -->
   <ng-container matColumnDef="software">
