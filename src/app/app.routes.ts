@@ -20,7 +20,7 @@ export const routes: Routes = [
     path: 'download-preset/:id',
     loadComponent: () => import('./pages/download-preset/download-preset')
       .then(m => m.DownloadPreset),
-    data: { prerender: false }   // desabilita prerender
+      data: { renderMode: 'ssr' }  // indica que essa rota será renderizada no servidor
   },
   { 
     path: 'terms', 
