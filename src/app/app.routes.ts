@@ -11,6 +11,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/upload-preset/upload-preset')
       .then(m => m.UploadPreset)
   },
+    { 
+    path: 'download',
+    loadComponent: () => import('./pages/download-preset/download-preset')
+      .then(m => m.DownloadPreset)
+  },
   { 
     path: 'terms', 
     loadComponent: () => import('./pages/terms/terms')
