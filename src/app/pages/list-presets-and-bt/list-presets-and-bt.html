@@ -80,17 +80,6 @@
   </td>
 </ng-container>
 
- <ng-container matColumnDef="filename">
-    <th mat-header-cell *matHeaderCellDef>FileName</th>
-    <td mat-cell *matCellDef="let element">{{ element.filename }}</td>
-  </ng-container>
-
-  <!-- Software Column -->
-  <!--<ng-container matColumnDef="linkcpagrip">
-    <th mat-header-cell *matHeaderCellDef>Link CPA</th>
-    <td mat-cell *matCellDef="let element">{{ element.linkcpagrip }}</td>
-  </ng-container> -->
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

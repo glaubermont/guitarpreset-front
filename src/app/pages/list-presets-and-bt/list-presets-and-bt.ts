@@ -38,7 +38,7 @@ export class ListPresetsAndBt implements OnInit {
   loading = false;
   error = '';
   
-  displayedColumns: string[] = ['artist', 'song', 'playmusic','linkcpagrip', 'software', 'videopreset','filename'];
+  displayedColumns: string[] = ['artist', 'song', 'playmusic','linkcpagrip', 'software', 'videopreset'];
   dataSource = new MatTableDataSource<BackingTrack>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
