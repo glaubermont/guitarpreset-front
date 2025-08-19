@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
 import { VideoTestingPreset } from '../video-testing-preset/video-testing-preset';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule , Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-presets-and-bt',
@@ -28,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ]
 })
 export class ListPresetsAndBt implements OnInit {
@@ -36,13 +38,14 @@ export class ListPresetsAndBt implements OnInit {
   loading = false;
   error = '';
   
-  displayedColumns: string[] = ['artist', 'song', 'playmusic','linkcpagrip', 'software', 'videopreset'];
+  displayedColumns: string[] = ['artist', 'song', 'playmusic','linkcpagrip', 'software', 'videopreset','filename'];
   dataSource = new MatTableDataSource<BackingTrack>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private backingTracksService: BackingTracksService,
-      private dialog: MatDialog
+      private dialog: MatDialog,
+      private router: Router,
   ) {}
 
   applyFilter(event: Event) {
@@ -82,5 +85,17 @@ export class ListPresetsAndBt implements OnInit {
       width: '800px',
       maxWidth: '95vw'
     });
+}
+
+  openLink(event: Event, element: { linkcpagrip: string | null, id: number }) {
+  event.preventDefault(); // evita comportamento padrão do <a>
+  
+  if (element.linkcpagrip) {
+    // abre link externo
+    window.open(element.linkcpagrip, '_blank');
+  } else {
+    // navega para o componente interno com id
+    this.router.navigate(['/download-preset', element.id]);
+  }
 }
 }

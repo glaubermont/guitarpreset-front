@@ -40,8 +40,9 @@
 <ng-container matColumnDef="linkcpagrip">
   <th mat-header-cell *matHeaderCellDef>Preset (download)</th>
   <td mat-cell *matCellDef="let element">
-    <a [href]="element.linkcpagrip || ''" 
-       target="_blank" 
+    <a [routerLink]="element.linkcpagrip ? null : ['/download-preset', element.id]" 
+       [href]="element.linkcpagrip || null" 
+       target="_blank"
        rel="noopener noreferrer"
        class="download-link">
       <mat-icon class="big-icon">download</mat-icon>
@@ -67,6 +68,11 @@
     </button>
   </td>
 </ng-container>
+
+ <ng-container matColumnDef="filename">
+    <th mat-header-cell *matHeaderCellDef>FileName</th>
+    <td mat-cell *matCellDef="let element">{{ element.filename }}</td>
+  </ng-container>
 
   <!-- Software Column -->
   <!--<ng-container matColumnDef="linkcpagrip">

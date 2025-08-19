@@ -12,7 +12,7 @@ export const routes: Routes = [
       .then(m => m.UploadPreset)
   },
     { 
-    path: 'download',
+    path: 'download-preset/:id',
     loadComponent: () => import('./pages/download-preset/download-preset')
       .then(m => m.DownloadPreset)
   },
