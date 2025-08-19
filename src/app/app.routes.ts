@@ -16,7 +16,7 @@ export const routes: Routes = [
   loadComponent: () => import('./pages/download-preset/download-preset')
     .then(m => m.DownloadPreset),  // ← vírgula aqui
   data: { prerender: false }      // desabilita prerender
-  
+
   },
   { 
     path: 'terms', 
@@ -33,4 +33,13 @@ export const routes: Routes = [
     redirectTo: 'list-presets-and-bt' 
   }
 ];
+
+export function getPrerenderParams() {
+  return [
+    { id: '298' },
+    { id: '2' },
+    { id: '3' }
+    // adicione todos os IDs de presets que quer gerar estaticamente
+  ];
+}
 
