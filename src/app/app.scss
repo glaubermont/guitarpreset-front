@@ -1,3 +1,17 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #ccc; // linha cinza
+  margin: 20px 0 0 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  color: #666;
+  font-size: 14px;
+}
+
