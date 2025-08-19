@@ -13,3 +13,10 @@
   height: 90px !important;
   line-height: 90px !important;
 }
+
+.header-with-image {
+  display: flex;
+  align-items: center; /* alinha verticalmente */
+  gap: 10px;           /* espaço entre a imagem e o texto */
+}
+
