@@ -1,4 +1,9 @@
 import { Routes } from '@angular/router';
+import { ListPresetsAndBt } from './pages/list-presets-and-bt/list-presets-and-bt';
+import { UploadPreset } from './pages/upload-preset/upload-preset';
+import { DownloadPreset } from './pages/download-preset/download-preset';
+import { Terms } from './pages/terms/terms';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
   { 
@@ -11,10 +16,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/upload-preset/upload-preset')
       .then(m => m.UploadPreset)
   },
-    { 
+  { 
     path: 'download-preset/:id',
     loadComponent: () => import('./pages/download-preset/download-preset')
-      .then(m => m.DownloadPreset)
+      .then(m => m.DownloadPreset),
+    data: { prerender: false }   // desabilita prerender
   },
   { 
     path: 'terms', 
@@ -31,4 +37,3 @@ export const routes: Routes = [
     redirectTo: 'list-presets-and-bt' 
   }
 ];
-
