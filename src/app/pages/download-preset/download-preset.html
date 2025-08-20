@@ -1,5 +1,44 @@
+<div class="download-wrapper" fxLayout="column" fxLayoutAlign="center center" style="min-height: 80vh; text-align: center;">
 
-<div >
-  <p><strong>Arquivo:</strong> {{ backingTrack?.filename }}</p>
-  <p><strong>Descrição:</strong> {{ backingTrack?.downloaddescription }}</p>
+  <!-- Título do preset -->
+  <h2 class="download-title" style="margin-bottom: 20px;">
+    {{ backingTrack?.downloaddescription }}
+  </h2>
+
+  <!-- Progresso de desbloqueio -->
+  <h5 *ngIf="!isSubscribed">Unlock progress {{ unlockProgress }}/1</h5>
+  <h5 *ngIf="isSubscribed" style="color: green;">Unlock progress {{ unlockProgress }}/1</h5>
+
+  <!-- Botões centralizados -->
+  <div class="button-group" style="margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+
+    <!-- Botão de ação YouTube -->
+    <a
+      mat-raised-button
+      color="warn"
+      style="display: flex; align-items: center; gap: 8px;"
+      href="https://www.youtube.com/channel/UChku1Tj9cFcOc2bejPmBLDw?sub_confirmation=1"
+      target="_blank"
+      (click)="enableDownload()">
+      <mat-icon>play_arrow</mat-icon>
+      Subscribe on YouTube
+    </a>
+
+    <!-- Botão de download Angular Material -->
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="!isSubscribed || isLoadingDownload"
+      (click)="unlockDownload()"
+      style="min-width: 200px; font-size: 16px; height: 50px;">
+      <span *ngIf="!isLoadingDownload">Unlock Download</span>
+      <mat-progress-spinner
+        *ngIf="isLoadingDownload"
+        diameter="24"
+        mode="indeterminate"
+        color="accent">
+      </mat-progress-spinner>
+    </button>
+
+  </div>
 </div>
