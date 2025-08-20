@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-download-preset',
   templateUrl: './download-preset.html',
   styleUrls: ['./download-preset.scss'],
-  standalone: true, // ✅ transforma em standalone
+  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,
@@ -35,8 +35,6 @@ export class DownloadPreset implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.queryParamMap.get('id'));
-    console.log('ID recebido:', id);
-
     if (id) {
       this.backingTracksService.getBackingTrackById(id).subscribe({
         next: (data) => {
@@ -61,16 +59,36 @@ export class DownloadPreset implements OnInit {
   }
 
   unlockDownload() {
-    if (!this.isSubscribed) {
-      alert('Você precisa completar a ação antes de desbloquear o download.');
-      return;
-    }
-
-    this.isLoadingDownload = true;
-
-    setTimeout(() => {
-      this.isLoadingDownload = false;
-      alert('Download iniciado!');
-    }, 1500);
+  if (!this.isSubscribed) {
+    alert('Você precisa completar a ação antes de desbloquear o download.');
+    return;
   }
+
+  if (!this.backingTrack?.filename) {
+    alert('Nenhum arquivo definido para este preset.');
+    return;
+  }
+
+  this.isLoadingDownload = true;
+
+  // Chama o backend para baixar
+  this.backingTracksService.downloadPreset(this.backingTrack.filename).subscribe({
+    next: (blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = this.backingTrack!.filename;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    },
+    error: (err) => {
+      console.error(err);
+      alert('Erro ao baixar o arquivo.');
+    },
+    complete: () => {
+      this.isLoadingDownload = false;
+    }
+  });
+}
+
 }

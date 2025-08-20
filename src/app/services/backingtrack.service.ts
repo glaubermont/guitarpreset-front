@@ -20,4 +20,8 @@ export class BackingTracksService {
   getBackingTrackById(id: number): Observable<BackingTrack> {
     return this.http.get<BackingTrack>(`${this.apiUrl}/${id}`);
   }
+
+   downloadPreset(filename: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/download/${filename}`, { responseType: 'blob' });
+  }
 }
