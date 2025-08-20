@@ -27,6 +27,7 @@ export class DownloadPreset implements OnInit {
   isSubscribed = false;
   unlockProgress = 0;
   isLoadingDownload = false;
+  buttondDisabled = true;
 
   constructor(
     private backingTracksService: BackingTracksService,
@@ -57,30 +58,24 @@ enableDownload() {
   if (this.isSubscribed || this.isLoadingDownload) return;
 
   // Inicia o loading do botão de download
-  this.isLoadingDownload = true;
+  this.isLoadingDownload = false;
+  this.buttondDisabled = false;
+  
 
   // Após 5 segundos, desbloqueia o botão e remove o loading
-  setTimeout(() => {
-    this.isSubscribed = true;        // agora o usuário pode clicar no download
-    this.unlockProgress = 1;         // atualiza o progresso
-    this.isLoadingDownload = false;  // spinner some
-  }, 5000);
+
 }
 
 
   unlockDownload() {
-    if (!this.isSubscribed) {
-      alert('Você precisa completar a ação antes de desbloquear o download.');
-      return;
-    }
-
+ 
     const filename = this.backingTrack?.filename;
     if (!filename) {
       alert('Nenhum arquivo definido para este preset.');
       return;
     }
 
-    this.isLoadingDownload = true;
+    if (this.buttondDisabled ==false) {
 
     this.backingTracksService.downloadPreset(filename).subscribe({
       next: (blob) => {
@@ -100,4 +95,5 @@ enableDownload() {
       }
     });
   }
+}
 }
