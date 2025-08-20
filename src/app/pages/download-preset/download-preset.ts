@@ -53,10 +53,20 @@ export class DownloadPreset implements OnInit {
     }
   }
 
-  enableDownload() {
-    this.isSubscribed = true;
-    this.unlockProgress = 1;
-  }
+enableDownload() {
+  if (this.isSubscribed || this.isLoadingDownload) return;
+
+  // Inicia o loading do botão de download
+  this.isLoadingDownload = true;
+
+  // Após 5 segundos, desbloqueia o botão e remove o loading
+  setTimeout(() => {
+    this.isSubscribed = true;        // agora o usuário pode clicar no download
+    this.unlockProgress = 1;         // atualiza o progresso
+    this.isLoadingDownload = false;  // spinner some
+  }, 5000);
+}
+
 
   unlockDownload() {
     if (!this.isSubscribed) {
