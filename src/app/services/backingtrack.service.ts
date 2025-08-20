@@ -21,7 +21,8 @@ export class BackingTracksService {
     return this.http.get<BackingTrack>(`${this.apiUrl}/${id}`);
   }
 
-   downloadPreset(filename: string): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/download/${filename}`, { responseType: 'blob' });
+  downloadPreset(filename: string): Observable<Blob> {
+    // Aqui está a correção:
+    return this.http.get(`${this.apiUrl}/download/${filename}`, { responseType: 'blob' as 'blob' });
   }
 }

@@ -59,36 +59,35 @@ export class DownloadPreset implements OnInit {
   }
 
   unlockDownload() {
-  if (!this.isSubscribed) {
-    alert('Você precisa completar a ação antes de desbloquear o download.');
-    return;
-  }
-
-  if (!this.backingTrack?.filename) {
-    alert('Nenhum arquivo definido para este preset.');
-    return;
-  }
-
-  this.isLoadingDownload = true;
-
-  // Chama o backend para baixar
-  this.backingTracksService.downloadPreset(this.backingTrack.filename).subscribe({
-    next: (blob) => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = this.backingTrack!.filename;
-      a.click();
-      window.URL.revokeObjectURL(url);
-    },
-    error: (err) => {
-      console.error(err);
-      alert('Erro ao baixar o arquivo.');
-    },
-    complete: () => {
-      this.isLoadingDownload = false;
+    if (!this.isSubscribed) {
+      alert('Você precisa completar a ação antes de desbloquear o download.');
+      return;
     }
-  });
-}
 
+    const filename = this.backingTrack?.filename;
+    if (!filename) {
+      alert('Nenhum arquivo definido para este preset.');
+      return;
+    }
+
+    this.isLoadingDownload = true;
+
+    this.backingTracksService.downloadPreset(filename).subscribe({
+      next: (blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Erro ao baixar o arquivo.');
+      },
+      complete: () => {
+        this.isLoadingDownload = false;
+      }
+    });
+  }
 }
