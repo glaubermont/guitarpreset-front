@@ -11,7 +11,13 @@ export class BackingTracksService {
 
   constructor(private http: HttpClient) {}
 
+  // Rota existente: todos os backing tracks
   getBackingTracks(): Observable<BackingTrack[]> {
     return this.http.get<BackingTrack[]>(this.apiUrl);
+  }
+
+  // Nova rota: buscar por ID
+  getBackingTrackById(id: number): Observable<BackingTrack> {
+    return this.http.get<BackingTrack>(`${this.apiUrl}/${id}`);
   }
 }

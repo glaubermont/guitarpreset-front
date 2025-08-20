@@ -6,4 +6,7 @@ export interface BackingTrack {
   presetguitar: string;
   software: string;
   videopreset: string;
+    // NOVOS CAMPOS que você quer exibir
+  filename: string;
+  downloaddescription: string;
 }
