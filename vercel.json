@@ -1,12 +1,16 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "dist/**",
-      "use": "@vercel/static"
-    }
+    { "src": "dist/guitarpreset/**", "use": "@vercel/static" }
   ],
   "routes": [
+    {
+      "src": "/(.*\\.(js|css|json|ico|png|jpg|woff2?))",
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/$1"
+    },
     {
       "src": "/(.*)",
       "headers": {
