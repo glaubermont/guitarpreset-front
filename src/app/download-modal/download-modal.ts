@@ -120,7 +120,7 @@ export class DownloadModalComponent {
 
  closeModal() {
     this.dialogRef.close();
-      this.router.navigate(['/list-presets-and-bt']); // redireciona para a rota raiz
+
 
   }
 }
