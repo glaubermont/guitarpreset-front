@@ -59,7 +59,7 @@ import { Router } from '@angular/router';
 
       <!-- Botão Close embaixo -->
       <div style="margin-top: 20px;">
-        <button mat-stroked-button color="warn" (click)="dialogRef.close()" style="min-width: 120px; height: 40px;">
+        <button mat-stroked-button color="warn" (click)="closeModal()" style="min-width: 120px; height: 40px;">
           Close
         </button>
       </div>
@@ -120,7 +120,7 @@ export class DownloadModalComponent {
 
  closeModal() {
     this.dialogRef.close();
-      this.router.navigate(['/contact']); // redireciona para a rota raiz
+      this.router.navigate(['/list-presets-and-bt']); // redireciona para a rota raiz
 
   }
 }
