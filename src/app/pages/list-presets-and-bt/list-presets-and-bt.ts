@@ -15,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { VideoTestingPreset } from '../video-testing-preset/video-testing-preset';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule , Router} from '@angular/router';
+import { DownloadModalComponent } from '../../download-modal/download-modal';
 
 @Component({
   selector: 'app-list-presets-and-bt',
@@ -97,5 +98,12 @@ export class ListPresetsAndBt implements OnInit {
     // navega para o componente interno com id
     this.router.navigate(['/download-preset', element.id]);
   }
+}
+
+openDownloadModal(element: BackingTrack) {
+  this.dialog.open(DownloadModalComponent, {
+    width: '400px',
+    data: element
+  });
 }
 }

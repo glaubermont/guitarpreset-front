@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Download Preset</h2>
+<mat-dialog-content>
+  <p>{{ data.song }}</p>
+  <p>{{ data.downloaddescription }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <a *ngIf="data.linkcpagrip"
+     [href]="data.linkcpagrip"
+     target="_blank"
+     rel="noopener noreferrer">
+    <button mat-raised-button color="primary">Download</button>
+  </a>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

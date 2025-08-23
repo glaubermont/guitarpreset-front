@@ -40,7 +40,6 @@
 <ng-container matColumnDef="linkcpagrip">
   <th mat-header-cell *matHeaderCellDef>Preset (download)</th>
   <td mat-cell *matCellDef="let element">
-
     <!-- Link externo se existir -->
     <a *ngIf="element.linkcpagrip"
        [href]="element.linkcpagrip"
@@ -50,15 +49,12 @@
       <mat-icon class="big-icon">download</mat-icon>
     </a>
 
-    <!-- Link interno se for nulo -->
-    <a *ngIf="!element.linkcpagrip"
-       [routerLink]="['/download-preset']"
-       [queryParams]="{ id: element.id }"
-       target="_blank"
-       class="download-link">
+    <!-- Modal se link interno -->
+    <button mat-icon-button color="accent"
+            *ngIf="!element.linkcpagrip"
+            (click)="openDownloadModal(element)">
       <mat-icon class="big-icon">download</mat-icon>
-    </a>
-
+    </button>
   </td>
 </ng-container>
 
