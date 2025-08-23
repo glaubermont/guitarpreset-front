@@ -35,7 +35,10 @@ export class DownloadPreset implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.queryParamMap.get('id'));
+  // Captura ID da rota (não da query string)
+
+  const id = Number(this.route.snapshot.queryParamMap.get('id'));
+  console.log("id = ",id);
     if (id) {
       this.backingTracksService.getBackingTrackById(id).subscribe({
         next: (data) => {
@@ -52,7 +55,9 @@ export class DownloadPreset implements OnInit {
       this.error = 'ID inválido';
       this.loading = false;
     }
-  }
+
+}
+
 
 enableDownload() {
   if (this.isSubscribed || this.isLoadingDownload) return;

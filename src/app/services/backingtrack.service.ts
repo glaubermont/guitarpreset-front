@@ -19,10 +19,7 @@ export class BackingTracksService {
   // Nova rota: buscar por ID
 getBackingTrackById(id: number): Observable<BackingTrack> {
   return this.http.get<BackingTrack>(`${this.apiUrl}/${id}`, {
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache'
-    }
+ 
   });
 }
 
