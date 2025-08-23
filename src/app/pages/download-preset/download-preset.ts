@@ -18,9 +18,11 @@ export class DownloadPresetPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const presetId = this.route.snapshot.paramMap.get('id');
+    // Pega o ID do query param ?id=15
+    const presetId = this.route.snapshot.queryParamMap.get('id');
+
     if (!presetId) {
-      this.router.navigate(['/presets']);
+      this.router.navigate(['/download-preset']);
       return;
     }
 
