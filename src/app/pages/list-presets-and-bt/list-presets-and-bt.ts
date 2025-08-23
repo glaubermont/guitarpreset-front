@@ -101,16 +101,12 @@ export class ListPresetsAndBt implements OnInit {
 }
 
 openDownloadModal(element: BackingTrack) {
-this.dialog.open(DownloadModalComponent, {
-  width: '400px',
-  maxWidth: '90vw',
-  height: 'auto',
-  maxHeight: '80vh',
-  data: element
-}).afterClosed().subscribe(() => {
-  // redireciona aqui, após fechar
-  this.router.navigate(['']); 
-});
+  this.dialog.open(DownloadModalComponent, {
+    width: '400px',     // largura do modal
+    maxWidth: '90vw',   // largura máxima em telas pequenas
+    height: 'auto',     // altura automática
+    maxHeight: '80vh',  // altura máxima
+    data: element
+  });
 }
-
 }
