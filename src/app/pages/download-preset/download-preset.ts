@@ -55,7 +55,11 @@ export class DownloadPreset implements OnInit {
       this.error = 'ID inválido';
       this.loading = false;
     }
-
+       // Verifica se a página já foi recarregada
+    if (!sessionStorage.getItem('alreadyReloaded')) {
+      sessionStorage.setItem('alreadyReloaded', 'true'); // marca que recarregou
+      window.location.reload(); // recarrega a página
+    }
 }
 
 
