@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/guitarpreset-front/server/main.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/guitarpreset-front/browser/**",
+      "src": "dist/guitarpreset/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/guitarpreset-front/server/main.js"
+      "dest": "/index.html"
     }
   ]
 }
