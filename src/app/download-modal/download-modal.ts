@@ -109,7 +109,7 @@ export class DownloadModalComponent {
       },
       error: (err) => {
         console.error(err);
-        alert('Erro ao baixar o arquivo.');
+        alert('File not found. This download will be available soon.');
       },
       complete: () => {
         this.isLoadingDownload = false;
