@@ -45,18 +45,21 @@
        [href]="element.linkcpagrip"
        target="_blank"
        rel="noopener noreferrer"
-       class="download-link">
+       class="download-link"
+       mat-icon-button
+       color="primary">
       <mat-icon class="big-icon">download</mat-icon>
     </a>
 
     <!-- Modal se link interno -->
-    <button mat-icon-button color="accent"
+    <button mat-icon-button color="primary"
             *ngIf="!element.linkcpagrip"
             (click)="openDownloadModal(element)">
       <mat-icon class="big-icon">download</mat-icon>
     </button>
   </td>
 </ng-container>
+
 
 
   <!-- Software Column -->
