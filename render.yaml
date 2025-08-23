@@ -2,14 +2,22 @@ services:
   - type: web
     name: guitarpreset
     env: static
-    staticPublishPath: dist/guitarpreset-front  # <-- pasta de build do Angular
+    staticPublishPath: dist/guitarpreset-front
     headers:
-      - glob: "**/*.css"
-        headers:
-          Content-Type: "text/css"
+      # Evita cache de arquivos
       - glob: "**/*.js"
         headers:
-          Content-Type: "application/javascript"
+          Cache-Control: "no-cache, no-store, must-revalidate"
+      - glob: "**/*.css"
+        headers:
+          Cache-Control: "no-cache, no-store, must-revalidate"
       - glob: "**/*.html"
         headers:
-          Content-Type: "text/html"
+          Cache-Control: "no-cache, no-store, must-revalidate"
+
+      # Habilita CORS para sua API externa
+      - glob: "/**"
+        headers:
+          Access-Control-Allow-Origin: "*"
+          Access-Control-Allow-Methods: "GET, POST, PUT, DELETE, OPTIONS"
+          Access-Control-Allow-Headers: "Content-Type, Authorization"
