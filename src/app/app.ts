@@ -29,6 +29,6 @@ export class App {
   constructor(private router: Router) {}
 
   redirectList() {
-    this.router.navigate(['/list-presets-and-bt']);
+      window.location.href = '/list-presets-and-bt'; // força reload completo
   }
 }
