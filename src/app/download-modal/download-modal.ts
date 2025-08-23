@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { BackingTracksService } from '../services/backingtrack.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-download-modal',
@@ -76,7 +77,8 @@ export class DownloadModalComponent {
   constructor(
     public dialogRef: MatDialogRef<DownloadModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private backingTracksService: BackingTracksService
+    private backingTracksService: BackingTracksService,
+    private router: Router  
   ) {
     this.backingTrack = data;
   }
@@ -114,5 +116,11 @@ export class DownloadModalComponent {
         this.dialogRef.close();
       }
     });
+  }
+
+ closeModal() {
+    this.dialogRef.close();
+      this.router.navigate(['/contact']); // redireciona para a rota raiz
+
   }
 }

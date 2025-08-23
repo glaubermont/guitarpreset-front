@@ -18,9 +18,9 @@ export const routes: Routes = [
       .then(m => m.UploadPreset)
   },
     { 
-    path: 'download-preset',
+    path: 'download-preset/:id',
     loadComponent: () => import('./pages/download-preset/download-preset')
-      .then(m => m.DownloadPreset)
+      .then(m => m.DownloadPresetPage)
   },
   { 
     path: 'terms', 
@@ -35,6 +35,6 @@ export const routes: Routes = [
   { 
     path: '**', 
     redirectTo: 'list-presets-and-bt' 
-  }
+  },
 ];
 
