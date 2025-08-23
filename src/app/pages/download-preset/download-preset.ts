@@ -37,14 +37,14 @@ export class DownloadPresetPage implements OnInit {
             maxHeight: '80vh',
             data: preset
           }).afterClosed().subscribe(() => {
-            this.router.navigate(['/presets']); // volta para a lista depois de fechar
+            window.location.href = '/list-presets-and-bt'; // força reload completo
           });
         } else {
-          this.router.navigate(['/presets']);
+          this.router.navigate(['/list-presets-and-bt']);
         }
       },
       error: () => {
-        this.router.navigate(['/presets']);
+        this.router.navigate(['/list-presets-and-bt']);
       }
     });
   }
