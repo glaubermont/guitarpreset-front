@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: guitarpreset
+    env: static
+    staticPublishPath: dist/guitarpreset-front  # <-- pasta de build do Angular
+    headers:
+      - glob: "**/*.css"
+        headers:
+          Content-Type: "text/css"
+      - glob: "**/*.js"
+        headers:
+          Content-Type: "application/javascript"
+      - glob: "**/*.html"
+        headers:
+          Content-Type: "text/html"
