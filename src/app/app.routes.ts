@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-
-   { 
+  { 
     path: '', 
     loadComponent: () => import('./pages/list-presets-and-bt/list-presets-and-bt')
       .then(m => m.ListPresetsAndBt)
@@ -17,7 +16,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/upload-preset/upload-preset')
       .then(m => m.UploadPreset)
   },
-  
   { 
     path: 'download-preset',
     loadComponent: () => import('./pages/download-preset/download-preset')
@@ -34,8 +32,12 @@ export const routes: Routes = [
       .then(m => m.Contact)
   },
   { 
+    path: 'subscribe',
+    loadComponent: () => import('./pages/subscribe/subscribe')
+      .then(m => m.SubscribeComponent)
+  },
+  { 
     path: '**', 
     redirectTo: 'list-presets-and-bt' 
   },
 ];
-

@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-subscribe',
-  imports: [],
-  templateUrl: './subscribe.html',
-  styleUrl: './subscribe.scss'
+  standalone: true,
+  template: '' // nada é renderizado
 })
-export class Subscribe {
-
+export class SubscribeComponent implements OnInit {
+  ngOnInit(): void {
+    window.location.href = 'https://www.youtube.com/channel/UChku1Tj9cFcOc2bejPmBLDw?sub_confirmation=1';
+  }
 }

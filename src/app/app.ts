@@ -26,11 +26,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class App {
   protected readonly title = signal('guitarpreset-front');
 
-  // ✅ Injetando o Router no construtor
   constructor(private router: Router) {}
 
-  // ✅ Função para redirecionar
   redirectList() {
-   window.location.href = '/list-presets-and-bt'; // força reload completo
+    this.router.navigate(['/list-presets-and-bt']);
   }
 }
