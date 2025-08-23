@@ -7,22 +7,22 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/list-presets-and-bt/list-presets-and-bt')
       .then(m => m.ListPresetsAndBt)
   },
-  /*
   { 
     path: 'list-presets-and-bt', 
     loadComponent: () => import('./pages/list-presets-and-bt/list-presets-and-bt')
       .then(m => m.ListPresetsAndBt)
-  },*/
+  },
   { 
     path: 'upload', 
     loadComponent: () => import('./pages/upload-preset/upload-preset')
       .then(m => m.UploadPreset)
   },
-    { 
+  /*
+  { 
     path: 'download-preset/:id',
     loadComponent: () => import('./pages/download-preset/download-preset')
       .then(m => m.DownloadPresetPage)
-  },
+  },*/
   { 
     path: 'terms', 
     loadComponent: () => import('./pages/terms/terms')
