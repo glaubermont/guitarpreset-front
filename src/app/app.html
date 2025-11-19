@@ -9,10 +9,18 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
+
       <button mat-icon-button (click)="drawer.toggle()" class="menu-button">
         <mat-icon>menu</mat-icon>
       </button>
+
+     
+
+      <!-- Texto -->
       <span class="app-title">GuitarPreset</span>
+       <!-- Logo -->
+     <img src="assets/logo_p_site.png" class="logo">
+
     </mat-toolbar>
 
     <router-outlet></router-outlet>

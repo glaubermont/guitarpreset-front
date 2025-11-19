@@ -15,3 +15,12 @@
   font-size: 14px;
 }
 
+.logo {
+  width: 58px;   // tamanho de ícone
+  height: 58px;  // mantém proporção
+  object-fit: contain;
+  margin-right: 0px; // espacinho antes do texto
+  margin-top:-10px;
+   margin-left:-5px;
+
+}
